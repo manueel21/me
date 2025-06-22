@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio - Planning Officer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+        Basic Reset & Defaults
+        ========================================
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========================================
+        Container
+        ========================================
+        */
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        /* ========================================
+        Header & Navigation
+        ========================================
+        */
+        .main-header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #e2e8f0; /* slate-200 */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #334155; /* slate-700 */
+        }
+
+        .nav-links {
+            display: none; /* Hidden on mobile */
+        }
+
+        .nav-links a {
+            color: #475569; /* slate-600 */
+            font-weight: 500;
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a:hover {
+            color: #0f172a; /* slate-900 */
+        }
+
+        .mobile-menu-button {
+            display: block; /* Show on mobile */
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #475569; /* slate-600 */
+            padding: 0.5rem;
+        }
+        .mobile-menu-button svg {
+             width: 1.5rem;
+             height: 1.5rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #475569; /* slate-600 */
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+
+        /* ========================================
+        Hero Section
+        ========================================
+        */
+        #home {
+            background-color: #1e293b; /* slate-800 */
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        #home .container {
+            max-width: 800px;
+        }
+
+        .hero-image {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #cbd5e1; /* slate-300 */
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            max-width: 48rem;
+            margin: 0 auto 2rem auto;
+            color: #e2e8f0; /* slate-200 */
+        }
+
+        .hero-button {
+            background-color: #ffffff;
+            color: #1e293b; /* slate-800 */
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #f1f5f9; /* slate-100 */
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+        Section Styling
+        ========================================
+        */
+        #home,
+        .section {
+            scroll-margin-top: 4rem; /* Offset for the 4rem sticky header */
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b; /* slate-800 */
+        }
+        
+        #about {
+            background-color: #ffffff;
+        }
+        
+        #projects {
+            background-color: #f8fafc; /* slate-50 */
+        }
+        
+        #skills {
+             background-color: #ffffff;
+        }
+
+        /* ========================================
+        About Section
+        ========================================
+        */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-image-container {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .about-image {
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: #475569; /* slate-600 */
+            max-width: 65ch; /* Improve readability */
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-button {
+             display: inline-block;
+             margin-top: 1.5rem;
+             background-color: #334155; /* slate-700 */
+             color: #ffffff;
+             font-weight: 500;
+             padding: 0.6rem 1.5rem;
+             border-radius: 0.5rem;
+             transition: background-color 0.3s ease;
+        }
+        .about-button:hover {
+             background-color: #1e293b; /* slate-800 */
+        }
+
+        /* ========================================
+        Projects Section
+        ========================================
+        */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0; /* slate-200 */
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #334155; /* slate-700 */
+        }
+
+        .project-description {
+            color: #475569; /* slate-600 */
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background-color: #e2e8f0; /* slate-200 */
+            color: #334155; /* slate-700 */
+        }
+        
+        /* ========================================
+        Skills Section
+        ========================================
+        */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            padding: 1.5rem;
+            background-color: #f8fafc; /* slate-50 */
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-item:hover {
+             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+             border-color: #cbd5e1; /* slate-300 */
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: #475569; /* slate-600 */
+        }
+
+        .skill-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155; /* slate-700 */
+        }
+
+        /* ========================================
+        Contact Section
+        ========================================
+        */
+        #contact {
+            background-color: #1e293b; /* slate-800 */
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .contact-title {
+            color: #ffffff;
+        }
+
+        .contact-description {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: #cbd5e1; /* slate-300 */
+        }
+
+        .contact-info-box {
+            background-color: #ffffff;
+            color: #1e293b; /* slate-800 */
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .contact-info-item {
+            margin-bottom: 1.25rem;
+        }
+         .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info-item label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            color: #475569; /* slate-600 */
+        }
+
+        .contact-info-item p,
+        .contact-info-item a {
+            color: #334155; /* slate-700 */
+            font-weight: 500;
+        }
+        .contact-info-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+        Footer
+        ========================================
+        */
+        .main-footer {
+            background-color: #0f172a; /* slate-900 */
+            color: #94a3b8; /* slate-400 */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* ========================================
+        Animations
+        ========================================
+        */
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+        Responsive Design - Media Queries
+        ========================================
+        */
+        
+        /* Small screens (e.g., small phones) */
+        @media (min-width: 480px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Medium screens (tablets) */
+        @media (min-width: 768px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            .hero-description {
+                font-size: 1.125rem;
+            }
+            .section {
+                padding: 5rem 0;
+            }
+            .about-content {
+                flex-direction: row;
+                gap: 3rem;
+            }
+            .about-image-container {
+                flex-basis: 40%;
+            }
+            .about-text {
+                flex-basis: 60%;
+                font-size: 1.125rem;
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+             .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        /* Large screens (desktops) */
+        @media (min-width: 1024px) {
+             .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="container navbar">
+            <div class="nav-brand">Manuel G. Sintos</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="mobile-menu-button">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section-fade-in">
+            <div class="container">
+                <img src="myID.jpeg" alt="Your Photo" class="hero-image" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e2e8f0/64748b?text=Photo';">
+                <h1 class="hero-title">Manuel Gabunar Sintos</h1>
+                <h2 class="hero-subtitle">Planning Officer I, DICT</h2>
+                <p class="hero-description">
+                    Dedicated to shaping the future of the Philippines' digital landscape through strategic planning and policy development at the Department of Information and Communications Technology.
+                </p>
+                <a href="#projects" class="hero-button">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="section section-fade-in">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image-container">
+                         <img src="myID.jpeg" alt="Profile Image" class="about-image" onerror="this.onerror=null; this.src='https://placehold.co/300x300/e0f2fe/64748b?text=Image';">
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            Hello! I'm Manuel G. Sintos, a passionate Planning Officer at the Department of Information and Communications Technology (DICT) in the Philippines. My work focuses on developing national ICT strategies, analyzing digital transformation policies, and managing key departmental projects.
+                        </p>
+                        <p>
+                            With 4 years of experience in Community Development Works and strategic planning, I am committed to leveraging technology for national development and improving public service delivery.
+                        </p>
+                        <p>
+                            My goal is to contribute effectively to DICT's mandate by ensuring robust planning frameworks and fostering data-driven decision-making. I believe in the power of technology to create a more connected and progressive Philippines.
+                        </p>
+                         <a href="#contact" class="about-button">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section section-fade-in">
+            <div class="container">
+                <h2 class="section-title">Key Projects & Contributions</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/e2e8f0/334155?text=Project+1" alt="Project 1 Visual" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/dbeafe/64748b?text=Project+1';">
+                        <h3 class="project-title">National ICT Strategy</h3>
+                        <p class="project-description">
+                           Contributed to the strategic planning phase of the National ICT Plan, focusing on developing key performance indicators and monitoring frameworks.
+                        </p>
+                        <span class="project-tag">Strategic Planning</span>
+                        <span class="project-tag">Policy Analysis</span>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                         <img src="https://placehold.co/600x400/e2e8f0/334155?text=Project+2" alt="Project 2 Visual" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/ccfbf1/64748b?text=Project+2';">
+                        <h3 class="project-title">Digital Transformation Program</h3>
+                        <p class="project-description">
+                           Managed the reporting and coordination for a key digital transformation initiative, ensuring alignment with departmental goals and timelines.
+                        </p>
+                         <span class="project-tag">Project Management</span>
+                         <span class="project-tag">Coordination</span>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                         <img src="https://placehold.co/600x400/e2e8f0/334155?text=Project+3" alt="Project 3 Visual" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/fee2e2/64748b?text=Project+3';">
+                        <h3 class="project-title">Annual Performance Report</h3>
+                        <p class="project-description">
+                           Authored significant sections of the annual performance report, focusing on data analysis and the presentation of project outcomes and impacts.
+                        </p>
+                         <span class="project-tag">Data Analysis</span>
+                         <span class="project-tag">Reporting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section section-fade-in">
+            <div class="container">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>Strategic Planning</h4>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-gavel"></i>
+                        <h4>Policy Analysis</h4>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-tasks"></i>
+                        <h4>Project Management</h4>
+                    </div>
+                     <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Data Analysis</h4>
+                    </div>
+                     <div class="skill-item">
+                        <i class="fas fa-comments"></i>
+                        <h4>Stakeholder Coordination</h4>
+                    </div>
+                     <div class="skill-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>ICT Sector Knowledge</h4>
+                    </div>
+                     <div class="skill-item">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>Technical Writing</h4>
+                    </div>
+                     <div class="skill-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Public Administration</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-fade-in">
+            <div class="container">
+                <h1 class="contact-title">Get In Touch</h1>
+                <br/>
+                <div class="contact-info-box">
+                     <div class="contact-info-item">
+                         <label>Email Address</label>
+                         <p><a href="mailto:manuelsintos21@gmail.com">manuelsintos21@gmail.com</a></p>
+                     </div>
+                     <div class="contact-info-item">
+                         <label>LinkedIn</label>
+                         <p><a href="https://www.linkedin.com/in/manuel-sintos-874453208/">linkedin.com/in/manuel-sintos-874453208/</a></p>
+                     </div>
+                     <div class="contact-info-item">
+                         <label>Location</label>
+                         <p>DICT Central Office, Quezon City, Metro Manila</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Manuel G. Sintos. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Simple Fade-in Animation on Scroll
+        const sections = document.querySelectorAll('.section-fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once it's visible to prevent re-animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 
+        });
+
+        // Initially make the first section visible without scrolling
+        if(sections.length > 0) {
+            sections[0].classList.add('visible');
+            observer.unobserve(sections[0]);
+        }
+
+        sections.forEach((section, index) => {
+            if (index > 0) { // Don't observe the first section again
+               observer.observe(section);
+            }
+        });
+
+    </script>
+
+</body>
+</html>
